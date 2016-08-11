@@ -181,15 +181,26 @@
   margin-top: 50px; }
 
 .pin {
-  width: 300px;
+  width: 200px;
   background-color: #E0E0E0;
   margin: 10px;
   float: left;
   border-radius: 5%; }
 
-.pin-pic {
+.namecard {
+  width: 20%;
+  margin: 20px 40% 20px 40%; }
+
+.pin-pic, .namecard-pic {
   width: 80%;
   margin: 10% 10% 5% 10%; }
+
+.pin-pic, .namecard-pic {
+  width: 80%;
+  margin: 10% 10% 5% 10%; }
+
+.namecard-pic {
+  border-radius: 10px; }
 
 .pin-title {
   width: 80%;
@@ -197,6 +208,13 @@
   text-align: center;
   font-weight: bold;
   font-size: 15px; }
+
+.namecard-title {
+  width: 80%;
+  margin: 2% 10% 2% 10%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px; }
 
 .pin-icon {
   margin: 5% 10% 5% 10%;
@@ -206,8 +224,31 @@
 .pin-remove {
   float: right;
   margin: 5% 10% 5% 10%;
-  width: 45px;
-  height: 45px;
-  vertical-align: middle; }
+  width: 30px;
+  height: 30px;
+  padding-left: 0px;
+  padding-right: 0px;
+  vertical-align: middle;
+  text-align: center; }
+
+.requestBar {
+  padding: 20px 3% 20px 3%; }
+
+.requestEntry {
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  float: left; }
+
+.requestBtn {
+  float: right;
+  margin-left: 10px;
+  margin-right: 10px; }
+
+.fromReqBar {
+  display: none; }
+
+.toReqBar {
+  display: none; }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,9 @@
+{
+    "twitterKey": {
+      "consumerKey": "Udn1XVFHEXBUqCHpGUNTev1go",
+      "consumerSecret": "I8toMKy1GmhCr02gqs49sFuB5DDwBke4LJJEAhKD5KMX98FDcj",
+      "callbackURL": "https://myezbook.herokuapp.com/signin/callback"
+    },
+    "dburl": "mongodb://charlie1996:13243546@ds017514.mlab.com:17514/charliedb",
+    "sessionSecret": "asd.fkjhasdflkjh"
+}

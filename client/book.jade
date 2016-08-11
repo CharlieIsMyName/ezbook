@@ -1,0 +1,64 @@
+doctype
+
+html
+  head
+    title Ez Book For fcc
+    include lib.jade
+    
+  body
+      div(class="container-fluid")
+        include header.jade
+      
+      //the personal information
+      div(class="namecard")
+        image(src="#{profile.iconURL}" class="namecard-pic" onError="this.onerror=null;this.src='pic/noImage.jpg'")
+        div(class="namecard-title") #{profile.name?profile.name:""}
+        div(class="namecard-title") #{(profile.city&&profile.country)?((profile.city?profile.city:"")+","+(profile.country?profile.country:"")):""}
+      
+      //the request bars
+      if(user&&user.id==id)  
+        div(id="fromReq" class="requestBar")
+          div(class="row")
+            div(class="col-md-3")
+              div(class="text-center btn btn-primary btn-block" onclick="toggleFrom()") #{'My Requests ('+user.fromReq.length+')'}
+              
+          each r in user.fromReq
+            div(class="row fromReqBar")
+              div(class="requestEntry") #{'Requesting "'+r.title+'" from '+r.toName}
+              a(href="#{'/respond?from='+r.from+'&to='+r.to+'&bookid='+r.bookid+'&d=N'}")
+                div(class="btn btn-danger requestBtn" data-toggle="tool-tip" title="Cancel this request")
+                    span(class="glyphicon glyphicon-remove")
+              
+        div(id="toReq" class="requestBar")
+          div(class="row")
+            div(class="col-md-3")
+              div(class="text-center btn btn-primary btn-block" onclick="toggleTo()") #{'Requests To Me ('+user.toReq.length+')'}
+              
+          each r in user.toReq
+            div(class="row toReqBar")
+              div(class="requestEntry") #{r.fromName+' is requesting for your book "'+r.title+'"'}
+              a(href="#{'/respond?from='+r.from+'&to='+r.to+'&bookid='+r.bookid+'&d=N'}")
+                div(class="btn btn-danger requestBtn" data-toggle="tool-tip" title="Accept this request")
+                  span(class="glyphicon glyphicon-remove")
+              a(href="#{'/respond?from='+r.from+'&to='+r.to+'&bookid='+r.bookid+'&d=Y'}")
+                div(class="btn btn-success requestBtn" data-toggle="tool-tip" title="Deny this request")
+                  span(class="glyphicon glyphicon-ok")
+              
+      
+      //the pin wall
+      div(class="pin-wall")
+        each p in books
+          div(class="pin")
+            image(src="#{p.url}" class="pin-pic" onError="this.onerror=null;this.src='pic/noImage.jpg'")
+            div(class="pin-title") #{p.title}
+            div(data-toggle="tool-tip" title="#{'@'+p.username}")
+              image(class="pin-icon" src="#{p.iconURL}")
+            if(user&&user.id==id)
+                a(href="#{'/delete?id='+p.id+'&bookid='+p.bookid}")
+                  div(class="pin-remove btn btn-danger" data-toggle="tool-tip" title="Remove this book from my collection")
+                    span(class="glyphicon glyphicon-remove")
+            if(user&&(user.id!=p.id))
+                a(href="#{'/request?id='+p.id+'&bookid='+p.bookid+'&src=book'+'&title='+p.title}")
+                  div(class="pin-remove btn btn-success" data-toggle="tool-tip" title="Send a request for this book")
+                    span(class="glyphicon glyphicon-book")
+script(src="js/init.js")

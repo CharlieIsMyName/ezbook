@@ -1,0 +1,27 @@
+doctype
+
+html
+  head
+    title New Book
+    include lib.jade
+    
+  body
+      div(class="container-fluid")
+       include header.jade
+       div(class="row")
+         div(class="signup-panel")
+           p(class="signup-prompt") Add New Book
+           div(class="form")
+             form(action="/newbook" method="post")
+               p(class="form-prompt") Book Title
+               input(type="text" name="title" class="long-input")
+               input(type="submit" value="Add Book" class="submit-btn")
+               
+               -function errToElement(err){
+               -    if(err=="invalid"){return "<div class='error-prompt'>Please make sure the book exist!</div>"}
+               -    return "";
+               -}
+               
+               p !{errToElement(err)}
+script(src="js/init.js")
+               

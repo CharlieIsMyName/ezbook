@@ -1,0 +1,22 @@
+doctype
+
+html
+  head
+    title Update Personal Information
+    include lib.jade
+    
+  body
+      div(class="container-fluid")
+       include header.jade
+       div(class="row")
+         div(class="signup-panel")
+           p(class="signup-prompt") Update Personal Information
+           div(class="form")
+             form(action="/update" method="post")
+               p(class="form-prompt") Name
+               input(type="text" name="name" class="long-input")
+               p(class="form-prompt") City
+               input(type="text" name="city" class="long-input")
+               p(class="form-prompt") Country
+               input(type="text" name="country" class="long-input")
+               input(type="submit" value="Update" class="submit-btn")

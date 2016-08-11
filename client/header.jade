@@ -1,16 +1,19 @@
 div(class="row headerBar")
  div(class="col-md-2 col-md-offset-5 text-center")
-   a(href="/" class="title") EZ Pin
+   a(href="/" class="title") EZ Book
  a(href="#{user?'#':'/signin'}" onclick="#{user?'toggleList()':''}" class="subtitle")  
     div(class="btn signin-btn col-md-offset-3 col-md-1 text-center") !{user?"<img align=middle width=30px src="+user.iconURL+">":"Sign In"}
 div
     div(id="userList" class="dropdown")
-        a(href="/newpin" class="dropdownLink")
+        a(href="/newbook" class="dropdownLink")
             div(class="dropdownElement")
-                p New Pin
-        a(href="#{'/pin?id='+(user&&user.id?user.id:null)}" class="dropdownLink")
+                p New Book
+        a(href="#{'/book?id='+(user&&user.id?user.id:null)}" class="dropdownLink")
             div(class="dropdownElement")
-                p My Pins
+                p My Books
+        a(href="/update" class="dropdownLink")
+            div(class="dropdownElement")
+                p Update
         a(href="/signout" class="dropdownLink")
             div(class="dropdownElement")
                 p Log Out
