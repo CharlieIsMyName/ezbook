@@ -17,8 +17,12 @@ html
               div(data-toggle="tool-tip" title="#{'@'+p.username}")
                 image(class="pin-icon" src="#{p.iconURL}")
             if(user&&(user.id!=p.id))
-                a(href="#{'/request?id='+p.id+'&bookid='+p.bookid+'&src=index'+'&title='+p.title}")
-                  div(class="pin-remove btn btn-success" data-toggle="tool-tip" title="Send a request for this book")
-                    span(class="glyphicon glyphicon-book")
+                if(!p.requested)
+                  a(href="#{'/request?id='+p.id+'&bookid='+p.bookid+'&src=index'+'&title='+p.title}")
+                    div(class="pin-remove btn btn-primary" data-toggle="tool-tip" title="Send a request for this book")
+                      span(class="glyphicon glyphicon-book")
+                else
+                  div(class="pin-remove btn btn-success" data-toggle="tool-tip" title="Request sent. Waiting for response")
+                    span(class="glyphicon glyphicon-time")
           
 script(src="js/init.js")

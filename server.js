@@ -139,13 +139,27 @@ app.get('/',function(req,res){
     var list=[];
     for(var i=0;i<data.length;i++){
       for(var j=0;j<data[i].book.length;j++){
+        var requested=false;
+        if(req.user){
+          var requested=req.user.fromReq.find(function(r){
+            return (r.to==data[i].id)&&(r.bookid==data[i].book[j].id)
+          });
+          if(requested){
+            requested=true;
+          }
+          else requested=false;
+        }
+        
+        
+        
         list.push({
           id: data[i].id,
           username: data[i].username,
           iconURL: data[i].iconURL,
           title: data[i].book[j].title,
           url: data[i].book[j].url,
-          bookid: data[i].book[j].id
+          bookid: data[i].book[j].id,
+          requested: requested
         });
       }
     }
@@ -251,14 +265,31 @@ app.get('/book',function(req,res){
     
     var profile=data[0];
     var list=[];
-    for(var i=0;i<profile.book.length;i++){     
+    for(var i=0;i<profile.book.length;i++){
+      var requested=false
+      
+      if(req.user){
+        requested=req.user.fromReq.find(function(r){
+          return (r.to==profile.id)&&(r.bookid==profile.book[i].id)
+        });
+        if(requested){
+          requested=true;
+        }
+        else requested=false;
+      }
+      
+      
+      
+      
+      
       list.push({
         id: profile.id,
         username: profile.username,
         iconURL: profile.iconURL,
         title: profile.book[i].title,
         url: profile.book[i].url,
-        bookid: profile.book[i].id
+        bookid: profile.book[i].id,
+        requested: requested
       });
     }
     
