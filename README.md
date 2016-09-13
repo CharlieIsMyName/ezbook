@@ -26,8 +26,11 @@ the callbackURL must match the one you registered with.
 
 -Currently depolyed on https://myezbook.herokuapp.com/
 
-
 -Original project requirement: https://www.freecodecamp.com/challenges/manage-a-book-trading-club
 
-
 -Many thanks to google book API which made this project possible
+
+#Demo
+![demo](http://res.cloudinary.com/dqwyjnzgi/image/upload/v1473726479/0_trdngz.png)
+![demo](http://res.cloudinary.com/dqwyjnzgi/image/upload/v1473726479/1_klefqr.png)
+![demo](http://res.cloudinary.com/dqwyjnzgi/image/upload/v1473726479/2_dyxywh.png)
